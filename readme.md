@@ -1,3 +1,7 @@
+## NAMA: TEGUH FADDILA
+## NIM: 183140714111002
+## KELAS: TI-S4A
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
