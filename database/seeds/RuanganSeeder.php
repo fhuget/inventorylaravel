@@ -14,14 +14,14 @@ class RuanganSeeder extends Seeder
     public function run()
     {
         $listRuangan = [
-                        'Lab Komputer 27',
-                        'H 85',
-                        'IB 15',
-                        'T 99',
+                        'Lab Komputer 300',
+                        'Lab Komputer 30',
+                        'FMP 15',
+                        'IB 20',
                         'FK 1',
-                        'FMP 12',
-                        'FSP 64',
-                        'Lab Komputer 303',
+                        'FH 80',
+                        'FT 95',
+                        'FSP 65',
                         ];
         $jurusan = 1;
 
