@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Jurusan;
 
+use App\Fakultas;
+
+use App\Exports\JurusanExport;
+
+use Maatwebsite\Excel\Facades\Excel;
 
 
 class JurusanController extends Controller
@@ -57,8 +62,8 @@ class JurusanController extends Controller
      */
     public function create()
     {
-
-        return view('jurusan.create');
+        $fakultas = Fakultas::all()->sortBy('nama_fakultas');
+        return view('jurusan.create', compact('fakultas'));
     }
 
     /**
@@ -105,9 +110,10 @@ class JurusanController extends Controller
      */
     public function edit($id)
     {
-        $data = Jurusan::findOrFail($id);
+        $fakultas = Fakultas::all()->sortBy('nama_fakultas');
 
-        return view('jurusan.edit', compact('data'));
+        $jurusan = Jurusan::findOrFail($id);
+        return view('jurusan.edit', compact('jurusan'))->with('fakultas', $fakultas);
     }
 
     /**
@@ -117,17 +123,17 @@ class JurusanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+
+     public function update($id, Request $request){
         $request->validate([
             'nama_jurusan' => 'required',
             'fakultas_id' => 'required',
         ]);
 
-        $data = Jurusan::find($id);
-        $data->nama_jurusan = $request->input('nama_jurusan');
-        $data->fakultas_id = $request->input('fakultas_id');
-        $data->save();
+        $jurusan = Jurusan::find($id);
+        $jurusan->nama_jurusan = $request->input('nama_jurusan');
+        $jurusan->fakultas_id = $request->input('fakultas_id');
+        $jurusan->save();
         return redirect()->route('jurusan.index')->with('success', 'Data is Successfully Updated');
     }
 
@@ -143,5 +149,10 @@ class JurusanController extends Controller
         return redirect()->route('jurusan.index')->with('success', 'Data is successfully deleted ');
 
         
+    }
+
+     public function export_excel()
+    {
+        return Excel::download(new JurusanExport, 'jurusan-'.date("Y-m-d").'.xlsx');
     }
 }
