@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+
 use App\Fakultas;
 
 class FakultasSeeder extends Seeder
@@ -12,10 +13,19 @@ class FakultasSeeder extends Seeder
      */
     public function run()
     {
-        $listFakultas = ['Filkom', 'Vokasi', 'Hukum'];
+        $listFakultas = [
+            'Fakultas Ilmu Komputer', 
+            'Fakultas Hukum',
+            'Fakultas Ilmu Administrasi',
+            'Fakultas Teknik',
+            'Fakultas Kedokteran',
+            'Fakultas Matematika dan Ilmu Pengetahuan Alam',
+            'Fakultas Ilmu Sosial dan Ilmu Politik',
+            'Program Pendidikan Vokasi', 
+            ];
  
         foreach ($listFakultas as $fakultas) {
-        	Fakultas::create(['name' => $fakultas]);
+        	Fakultas::create(['nama_fakultas' => $fakultas]);
         }
     }
 }
