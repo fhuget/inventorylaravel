@@ -12,6 +12,6 @@ class BarangSeeder extends Seeder
      */
     public function run()
     {
-        Barang::create(['ruangan_id' => '1', 'name_barang' => 'LCD PROYEKTOR', 'total' => '2', 'broken' => '1', 'created_by' => 'admin']);
+        Barang::create(['ruangan_id' => '1', 'name_barang' => 'KURSI', 'total' => '30', 'broken' => '1', 'created_by' => 'admin']);
     }
 }
