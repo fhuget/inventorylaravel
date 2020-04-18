@@ -16,7 +16,7 @@ class FakultasSeeder extends Seeder
         $listFakultas = [
             'Fakultas Ilmu Komputer', 
             'Fakultas Hukum',
-            'Fakultas Ilmu Administrasi',
+            'Fakultas Ilmu Budaya',
             'Fakultas Teknik',
             'Fakultas Kedokteran',
             'Fakultas Matematika dan Ilmu Pengetahuan Alam',
