@@ -15,12 +15,12 @@ class JurusanSeeder extends Seeder
     {
         $listJurusan = [
                         'Sistem Informasi',
-                        'Ilmu Hukum',
-                        'Administrasi Pendidikan',
+                        'Sastra Jepang',
+                        'Ilmu Administrasi',
                         'Teknik Sipil',
-                        'Farmasi',
-                        'Biologi',
-                        'Sosiologi',
+                        'Teknik Industri',
+                        'Matematika',
+                        'Sastra Inggris',
                         'D3 Teknik Komputer'
                     ];
 
