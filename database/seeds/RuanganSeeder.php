@@ -16,7 +16,7 @@ class RuanganSeeder extends Seeder
         $listRuangan = [
                         'Lab Komputer 27',
                         'H 85',
-                        'IA 14',
+                        'IB 15',
                         'T 99',
                         'FK 1',
                         'FMP 12',
