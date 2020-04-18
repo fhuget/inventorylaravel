@@ -5,7 +5,7 @@
   
   <div class="section-header">
     <h1>
-      Jurusan <small>Ubah Data</small>
+      Jurusan <small>Edit Data</small>
     </h1>
   </div>
 
@@ -20,17 +20,20 @@
           </a>
           </div>
           <div class="card-body">
-            <form action="{{ route('jurusan.update', ['id' => $data->id]) }}" method="POST" enctype="multipart/form-data">
-              <input type="hidden" name="_method" value="PUT">
-              @csrf
+            <form method="post" action="{{ route('jurusan.update', $jurusan->id) }}" enctype="multipart/form-data">
+                  @csrf
+                  @method('POST')
               <div class="form-group">
                 <label>Nama Jurusan</label>
-                <input type="text" name="nama_jurusan" class="form-control" value="{{ $data->nama_jurusan }}">
+                <input type="text" name="nama_jurusan" class="form-control" value="{{ $jurusan->nama_jurusan }}">
               </div>
               <div class="form-group">
-                <label>Kode Fakultas</label>
-                <input type="number" name="fakultas_id" class="form-control" value="{{ $data->fakultas_id }}">
-              </div>
+                <label>Fakultas</label>
+                  <select class="form-control" name="fakultas_id">
+                          @foreach( $fakultas as $fakultas)
+                              <option value="{{ $fakultas->id_fakultas }}" {{ $fakultas->id_fakultas == $jurusan->fakultas_id ? 'selected="selected"' : '' }}> {{ $fakultas->nama_fakultas}} </option>
+                          @endforeach
+          </select></div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary">SAVE</button>
               </div>

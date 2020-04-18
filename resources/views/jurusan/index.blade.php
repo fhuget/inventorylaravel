@@ -6,7 +6,7 @@
 
 
   <div class="section-header">
-    <h1>Seputar Jurusan</h1>
+    <h1>Jurusan</h1>
   </div>
 
   <div class="section-body">
@@ -33,6 +33,10 @@
           <div class="card-header">
             <a href="{{ route('jurusan.create') }}">
               <button type="button" class="btn btn-primary">Add New</button>
+            </a>
+          </div>
+           <a href="{{ route('jurusan.download') }}" class="pull-right">
+              <button type="button" class="btn btn-success">Export Excel</button>
             </a>
           </div>
           <div class="card-body">

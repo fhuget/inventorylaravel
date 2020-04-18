@@ -1,15 +1,15 @@
 @extends('layouts.adminmain')
-
+@section('title', 'Ruangan')
 @section('content')
 <section class="section">
   
   <div class="section-header">
-    <h1>Fakultas</h1>
+    <h1>Ruangan</h1>
   </div>
 
   <div class="section-body">
     <div class="col-12 col-md-12 col-lg-12">
-      @if($message = Session::get('success'))
+    @if($message = Session::get('success'))
           <div class="alert alert-success">
             <p> {{ $message }} </p>
           </div>
@@ -24,12 +24,12 @@
                 <button type="submit" class="btn btn-primary">Search</button>
               </div>
             </form>
-            <a href="{{ route('fakultas.index') }}" class="pull-right">
+            <a href="{{ route('ruangan.index') }}" class="pull-right">
               <button type="button" class="btn btn-info">All Data</button>
             </a>
           </div>
           <div class="card-header">
-            <a href="{{ route('fakultas.create') }}">
+            <a href="{{ route('ruangan.create') }}">
               <button type="button" class="btn btn-primary">Add New</button>
             </a>
           </div>
@@ -38,22 +38,22 @@
               <thead>
                 <tr>
                   <th scope="col">No</th>
-                  <th scope="col">Nama Fakultas</th>
-                  <th scope="col">Kode Fakultas</th>
+                  <th scope="col">Ruangan</th>
+                  <th scope="col">Jurusan</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
-               @forelse($data as $key => $fakultas)
+               @forelse($dataRuangan as $key => $ruangan)
                 <tr>
-                  <td>{{ $data->firstItem() + $key }}</td>
-                  <td>{{ $fakultas->nama_fakultas }}</td>
-                  <td>{{ $fakultas->id_fakultas }}</td>
+                  <td>{{ $dataRuangan->firstItem() + $key }}</td>
+                  <td>{{ $ruangan->nama_ruangan }}</td>
+                  <td>{{ $ruangan->jurusan->nama_jurusan }}</td>
                   <td>
-                    <a href="{{ route('fakultas.edit', ['id_fakultas' => $fakultas->id_fakultas]) }}">
-                      <button type="button" class="btn btn-sm btn-info">Edit</button>
+                    <a href="{{ route('ruangan.edit', ['id_ruangan' => $ruangan->id_ruangan]) }}">
+                      <button type="button" class="btn btn-sm btn-warning">Edit</button>
                     </a>
-                   <a href="{{ route('fakultas.delete', ['id_fakultas' => $fakultas->id_fakultas]) }}"
+                   <a href="{{ route('ruangan.delete', ['id_ruangan' => $ruangan->id_ruangan]) }}"
                     onclick="return confirm('Delete data?');" 
                     >
                       <button type="button" class="btn btn-sm btn-danger">Hapus</button>
@@ -67,6 +67,7 @@
                 @endforelse
               </tbody>
             </table>
+
           </div>
           <div class="card-footer text-right">
             <nav class="d-inline-block">
@@ -76,7 +77,6 @@
         </div>
       </div>  
   </div>
-
+  {!! $dataRuangan->links() !!}
 </section>
-{!! $data->links() !!}
 @endsection()

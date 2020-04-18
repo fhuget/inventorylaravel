@@ -4,7 +4,7 @@
 <section class="section">
   
   <div class="section-header">
-    <h1>Jurusan <small>Tambah Data</small></h1>
+    <h1>Jurusan <small>Add Data</small></h1>
   </div>
 
   <div class="section-body">
@@ -34,11 +34,16 @@
                 <input type="text" name="nama_jurusan" class="form-control">
               </div>
               <div class="form-group">
-                <label>Kode Fakultas</label>
-                <input type="number" name="fakultas_id" class="form-control">
-              </div>
+                            <label>Nama Fakultas</label>
+                            <select class="form-control" id="fakultas_id" name="fakultas_id" class="form-control">
+                                <option value="" hidden>Pilih Fakultas</option>
+                                @foreach($fakultas as $fak)
+                                    <option value="{{ $fak->id_fakultas }}">{{ $fak->nama_fakultas }}</option>
+                                @endforeach
+                            </select>
+                        </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-primary">SAVE</button>
+                <button type="submit" class="btn btn-primary">Add</button>
               </div>
               </form>
           </div>
