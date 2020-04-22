@@ -23,6 +23,22 @@
           <form action="{{ route('barang.update', ['id_barang' => $barang->id_barang]) }}" method="POST" enctype="multipart/form-data">
               <input type="hidden" name="_method" value="PUT">
               @csrf
+
+               @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                             @endforeach
+                        </ul>
+                  </div>
+              @endif
+
+                <div class="form-group">
+                    <label>Gambar</label>
+                      <input type="file" name="image" class="form-control">
+                </div>
+                
               <div class="form-group">
                 <label>Nama Barang</label>
                 <input type="text" name="nama_barang" class="form-control" value="{{ $barang->nama_barang }}">

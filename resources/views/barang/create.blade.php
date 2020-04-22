@@ -18,12 +18,33 @@
           </a>
           </div>
            <div class="card-body">
+
+
+                            <br/>
+
             <form method="post" action="{{ route('barang.store') }}" enctype="multipart/form-data">
             @csrf
+
+              @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                             @endforeach
+                        </ul>
+                  </div>
+              @endif
+
+                <div class="form-group">
+                    <label>Gambar</label>
+                      <input type="file" name="image" class="form-control">
+                </div>
+
                 <div class="form-group">
                     <label>Barang</label>
                         <input type="text" name="nama_barang" class="form-control input-lg" />
                 </div>
+                
               <div class="form-group">
                 <label >Ruangan</label>
                     <select class="form-control input-lg"  name="ruangan_id">
