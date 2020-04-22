@@ -60,13 +60,14 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        $barang = new Barang;
-        $barang->nama_barang = $request->nama_barang;
-        $barang->total = $request->total;
-        $barang->broken = $request->broken;
-        $barang->created_by = $request->created_by;
-        // $barang->updated_by = $request->updated_by;
-        $barang->ruangan_id = $request->ruangan_id;
+        $barang = Barang::find($id_barang);
+        $barang->image = $request->input('image');
+        $barang->nama_barang = $request->input('nama_barang');
+        $barang->ruangan_id = $request->input('ruangan_id');
+        $barang->total = $request->input('total');
+        $barang->broken = $request->input('broken');
+        $barang->created_by = $request->input('created_by');
+        $barang->updated_by = $request->input('updated_by');
         $barang->save();
 
         $messages = [
