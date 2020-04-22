@@ -50,6 +50,8 @@ class BarangController extends Controller
         return view('barang.create', compact('dataruangan'));
     }
 
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -66,6 +68,20 @@ class BarangController extends Controller
         // $barang->updated_by = $request->updated_by;
         $barang->ruangan_id = $request->ruangan_id;
         $barang->save();
+
+        $messages = [
+        'required' => ':kolom wajib diisi'
+        ];
+
+        $this->validate($request,[
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'ruangan_id' => 'required', 
+            'nama_barang' => 'required', 
+            'total' => 'required|numeric', 
+            'broken' => 'required|numeric', 
+            'created_by' => 'required', 
+            'updated_by' => 'required',
+        ],$messages);
 
         return redirect()->route('barang.index');
 
@@ -115,6 +131,20 @@ class BarangController extends Controller
         $barang->created_by = $request->input('created_by');
         $barang->updated_by = $request->input('updated_by');
         $barang->save();
+
+         $messages = [
+        'required' => ':kolom wajib diisi'
+        ];
+
+        $this->validate($request,[
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'ruangan_id' => 'required', 
+            'nama_barang' => 'required', 
+            'total' => 'required|numeric', 
+            'broken' => 'required|numeric', 
+            'created_by' => 'required', 
+            'updated_by' => 'required',
+        ],$messages);
 
         return redirect()->route('barang.index')->with('success', 'Data is Successfully Updated');
 
