@@ -124,6 +124,7 @@ class BarangController extends Controller
     {
 
         $barang = Barang::find($id_barang);
+        $barang->image = $request->input('image');
         $barang->nama_barang = $request->input('nama_barang');
         $barang->ruangan_id = $request->input('ruangan_id');
         $barang->total = $request->input('total');
