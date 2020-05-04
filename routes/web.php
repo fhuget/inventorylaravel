@@ -77,9 +77,9 @@ Route::get('/login', 'AuthController@loginform')->name('login');
 
 Route::get('/register', 'AuthController@registerform');
 
-
-
 Route::get('/logout', 'AuthController@logout');
+
+Route::get('/sendemail','EmailController@send');
 
 Route::get('/', function () {
     return view('auth.login');
