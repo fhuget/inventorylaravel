@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth', 'chckRole:admin']], function(){
 	Route::get('fakultas/edit/{id}', ['as' => 'fakultas.edit', 'uses' => 'FakultasController@edit']);
 	Route::put('fakultas/edit/{id}', ['as' => 'fakultas.update', 'uses' => 'FakultasController@update']);
 	Route::get('fakultas/delete/{id}', ['as' => 'fakultas.delete', 'uses' => 'FakultasController@delete']);
+	Route::post('fakultas/import', ['as' => 'fakultas.import', 'uses' => 'FakultasController@import']);
 
 	// Jurusan
 	Route::get('jurusan', ['as' => 'jurusan.index', 'uses' => 'JurusanController@index']);
